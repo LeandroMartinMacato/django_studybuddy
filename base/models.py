@@ -30,6 +30,8 @@ class Message(models.Model):
     body = models.TextField(max_length=250)
     updated = models.DateTimeField(auto_now=True) #Automatic DateTimeField | Everytime we save
     created = models.DateTimeField(auto_now_add=True) #When we first save
+    class Meta:
+        ordering = ['-updated', '-created'] # if with "-" it will be reversed
 
     def __str__(self):
         return self.body[0:50]
